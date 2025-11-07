@@ -81,6 +81,7 @@ app.use("/api/polls", pollRoutes);
 app.get("/", (req, res) => {
   res.send("✅ Server is running and CORS is enabled!");
 });
+app.use("/api/auth", authRoutes);
 
 const server = http.createServer(app);
 
