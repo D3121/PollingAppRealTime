@@ -1,10 +1,67 @@
 body {
   font-family: "Segoe UI", sans-serif;
-  background: #f8f9fb;
   margin: 0;
   padding: 0;
-  background: linear-gradient(90deg, rgb(96, 165, 250), rgb(167, 139, 250), rgb(244, 114, 182)) text;
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    rgb(42, 49, 70),
+    rgb(21, 17, 75),
+    rgb(36, 35, 35),
+    rgb(10, 21, 50)
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  position: relative;
+  overflow-x: hidden;
+}
 
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Optional: Add floating orbs for extra effect */
+body::before {
+  content: '';
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.15) 0%, transparent 70%);
+  top: -250px;
+  left: -250px;
+  animation: float 8s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(167, 139, 250, 0.15) 0%, transparent 70%);
+  bottom: -200px;
+  right: -200px;
+  animation: float 10s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
 }
 
 .container {
@@ -14,8 +71,15 @@ body {
 }
 
 h1 {
+  font-size: 38px;
+  font-weight: 800;
   text-align: center;
-  color: #333;
+  background: linear-gradient(90deg, rgb(145, 110, 171), rgb(211, 153, 153), rgb(151, 9, 59)) text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: rgba(96, 165, 250, 0.4) 0px 0px 30px;
+  letter-spacing: 0.5px;
+  filter: drop-shadow(rgba(167, 139, 250, 0.5) 0px 0px 15px);
+  margin-bottom: 8px;
 }
 
 .create-card,
