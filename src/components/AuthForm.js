@@ -46,8 +46,41 @@ export default function AuthForm({ mode = 'login', onClose, onAuthSuccess }) {
 }
 
 const styles = {
-  backdrop: { position: 'fixed', left:0, top:0, right:0, bottom:0, background: 'rgba(0,0,0,0.4)', display:'flex', alignItems:'center', justifyContent:'center' },
-  card: { background: '#fff', padding: 20, borderRadius: 8, minWidth: 320 },
-  button: { background: '#1976d2', color:'#fff', border:'none', padding:'8px 12px', borderRadius:6, cursor:'pointer' },
-  cancel: { background: '#999', color:'#fff', border:'none', padding:'8px 12px', borderRadius:6, cursor:'pointer' }
+  backdrop: {
+    position: 'fixed',
+    left: 0,
+    top: 0,
+    right: 0,
+    bottom: 0,
+    background: 'rgba(0,0,0,0.4)',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    zIndex: 9999, // <-- add this
+  },
+  card: {
+    background: '#fff',
+    padding: 20,
+    borderRadius: 8,
+    minWidth: 320,
+    boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
+    zIndex: 10000, // <-- ensure the card is above the backdrop
+  },
+  button: {
+    background: '#1976d2',
+    color: '#fff',
+    border: 'none',
+    padding: '8px 12px',
+    borderRadius: 6,
+    cursor: 'pointer',
+  },
+  cancel: {
+    background: '#999',
+    color: '#fff',
+    border: 'none',
+    padding: '8px 12px',
+    borderRadius: 6,
+    cursor: 'pointer',
+  },
 };
+
