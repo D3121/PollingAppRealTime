@@ -12,11 +12,14 @@ const app = express();
 // ✅ Cấu hình CORS cho Netlify
 app.use(
   cors({
-    origin: ["https://pollingrealtime.netlify.app"], // domain frontend của bạn
+    origin: [
+      "https://pollingapprealtimefrontend.netlify.app", // ✅ correct frontend domain
+    ],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
+
 
 // ✅ Middleware cơ bản
 app.use(express.json());
@@ -33,10 +36,13 @@ const server = http.createServer(app);
 // ✅ Socket.IO với CORS
 initIO(server, {
   cors: {
-    origin: ["https://pollingrealtime.netlify.app"],
+    origin: [
+      "https://pollingapprealtimefrontend.netlify.app", // ✅ same here
+    ],
     methods: ["GET", "POST"],
   },
 });
+
 
 // ✅ PORT
 const PORT = process.env.PORT || 5000;
